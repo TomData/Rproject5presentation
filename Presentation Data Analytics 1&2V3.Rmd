@@ -1,0 +1,182 @@
+---
+title: "How Data Analytics has benefited Blackwell"
+author: "Thomas Schenider - Data Analyst"
+output:
+  ioslides_presentation:
+    incremenal: true
+    background: white
+    smaller: yes
+    widescreen: yes
+---
+      
+```{r setup, include=FALSE}
+## don't show the code but execute it
+knitr::opts_chunk$set(echo = FALSE, cache = F)
+```
+
+```{r loading libraries and dataset, message=FALSE, warning=F}
+# loading & isntalling libraries
+
+if(require("pacman")=="FALSE"){
+  install.packages("pacman")
+} 
+pacman::p_load(corrplot, dplyr, ggplot2, caret, tidyr, dunn.test, Hmisc,xtable, htmlTable, 
+               knitr, kableExtra, RColorBrewer, e1071, FNN, scales,
+               tibble, modelr, magrittr, VIM, fastDummies, plotly, readr)
+```
+
+
+## Table of Contents {.build}
+
+1. 9 Benefits of Data Analytics for Blackwell
+
+2. How has Data Analytics benefitted Blackwell?
+  a. Customer Buying Patterns
+  b. Product Profitability Prediction
+  c. Customer Brand Preference
+  d. Market Basket Analysis
+
+3. What future uses would benefit Blackwell?
+
+
+## 9 Benefits of Data Analytics for Blackwell (1-4)
+
+<div class="columns-2">
+1  Generate **new customers** -> customer segmentation
+
+2  Create **more value** for customers -> improved product selection/ service development
+
+3  **Capitalize on trends** -> data enhanced trend analysis
+
+4  **Increases sales** & no. items purchased -> Market Basket Analysis
+
+5  Improved **Capital Utilization** & Inventory -> Sales Forecasting & Merchandise planning
+
+6 **Increased Marketing Response** Rates -> Marketing Analytics
+
+7 **Optimize warranty** policies -> Warranty Prediction & Optimization
+
+8 Improve **employee satisfaction** & improve hiring -> HR Analytics
+
+9 **Decrease Customers Churn** -> Customer Loyalty improvement
+
+
+## 2. How has Data Analytics benefitted Blackwell?
+
+
+## a. Customer Buying Patterns
+
+### 1 Spending by Region:
+
+- large var.: Central<div class="green">highest avg</div>.; West<div class="red">lowest avg.</div>
+
+```{r echo=FALSE, out.width="65%", fig.align='center'}
+knitr::include_graphics("C:/Users/Thomas S/Documents/Ubiqum/2. Data Analytics 2/2. Data Analytics 2/5. Present to the CEO and Report on Lessons Learned/1.1 Investigate Customer Buying Patterns.jpg")
+```
+
+
+## a. Customer Buying Patterns
+
+### 2. Predictability Customer Age:
+
+- West **highest** avg.: 57.209 ; Central **lowest** avg. 38.758
+- West & South not predictable; East by amount; Central by in-store/ online
+
+## a. Customer Buying Patterns
+
+### 3. Martin’s Hypothesis: Age Explaining Online/In-Store
+
+- For East, West & Central **age not important**
+- **Amount** more **important** than age
+- Higher Amount spend online
+
+```{r echo=FALSE, out.width="65%", fig.align='center'}
+knitr::include_graphics("C:/Users/Thomas S/Documents/Ubiqum/2. Data Analytics 2/2. Data Analytics 2/5. Present to the CEO and Report on Lessons Learned/1.1 Investigate Customer Buying Patterns Martin Hypo.jpg")
+```
+
+
+## a. Customer Buying Patterns
+
+### 4. Relationship no. Items & Amount:**
+
+- Relationship weak
+- Spend 2000+  buy 5 items instead of 4 (on avg.)
+
+```{r echo=FALSE, out.width="65%", fig.align='center'}
+knitr::include_graphics("C:/Users/Thomas S/Documents/Ubiqum/2. Data Analytics 2/2. Data Analytics 2/5. Present to the CEO and Report on Lessons Learned/1.1 Investigate Customer Buying Patterns 4.jpg")
+```
+
+## b. Product Profitability Prediction
+ 
+Top 5 products by Profit : PC 171 & 172, Laptop 173 & 175, Smartphone 193
+
+Profit: Volume x Profit Margin x Price
+
+```{r echo=FALSE, out.width="70%", fig.align='center'}
+knitr::include_graphics("C:/Users/Thomas S/Documents/Ubiqum/2. Data Analytics 2/2. Data Analytics 2/5. Present to the CEO and Report on Lessons Learned/1.jpg")
+```
+
+
+## c. Customer Brand Preference
+
+**Task:**
+Aiding the sales team we were able to help predict which two brands of computers (Acer or Sony) our customers prefer, so we can decide with which brand we would like to establish a strategic relationship.
+
+
+**Results:** Already in the initial data exploration it was found that  the customers seem to have a preference for **Sony** with **62%** of those surveyed prefering Sony vs **38%** prefering **Acer**.
+
+This initial observation was hardend in the following analysis. It was found that for both of the choosen alogrithms **salary & age** were the **most important** factors to predict the brand preference. 
+
+```{r echo=FALSE, out.width="70%", fig.align='center'}
+knitr::include_graphics("C:/Users/Thomas S/Documents/Ubiqum/2. Data Analytics 2/2. Data Analytics 2/5. Present to the CEO and Report on Lessons Learned/2.jpg")
+```
+
+
+## c. Customer Brand Preference (Part 3)
+
+```{r echo=FALSE, out.width="35%", fig.align='center'}
+knitr::include_graphics("C:/Users/Thomas S/Documents/Ubiqum/2. Data Analytics 2/2. Data Analytics 2/5. Present to the CEO and Report on Lessons Learned/3.jpg")
+```
+
+As can be observed in the following graph using both salary and age as indicators this makes is possible for the alogrithms to identify the prefered brands of the customers. The prefered brand is Sony which is more prelevant in the graph.
+
+```{r echo=FALSE, out.width="35%", fig.align='center'}
+knitr::include_graphics("C:/Users/Thomas S/Documents/Ubiqum/2. Data Analytics 2/2. Data Analytics 2/5. Present to the CEO and Report on Lessons Learned/4.jpg")
+```
+
+
+## d. Market Basket Analysis
+
+**Task:** Blackwell Electronics considered the acquisition of Elcetronindex, a start-up electronics online retailer. The board of directors was interested in understanding what clientele Electronindex  has in order to evaluate whether the acquisition would add to Blackwell’s strategic target customer base.
+
+**Approach:** A market basket analysis of Electronindex Sales data was performed in order to explore 1. what patterns can be observed within Electronidex’s sales, 2. whether Blackwell would benefit from selling any items of Electronindex’s product portfolio and 3. overall wether the acquisition is recommendable.
+
+
+
+## 2. How has Data Analytics benefitted Blackwell?
+### d. Market Basket Analysis (Part 2)
+
+**Results:** Overall we do not recommend the aquisition based on the information we have about the customers of Electronidex.
+
+While Blackwell is a company focused on the B2C market this does not seem to be the case for Electronindex. The typciall pattern which can be observed in the Sales Data suggest that Electronindex’s customers purchase multiple very expensive products at once which is atypical of traditional private consumers.
+
+Therefore the aqusition is only recommended if Blackwell would like to expend their clientel to business customers. However Blackwell would significantly benefit from selling certain products especially the Apple iMac and the HP Laptop. According to the Sales Data either almost always either of the two products (or both) are part of the market basket of Electronindex’s customers and are the most purchased items
+
+## 2. How has Data Analytics benefitted Blackwell?
+### d. Market Basket Analysis (Part 3)
+
+In particular the following products should be considered to be added to Blackwell product portfolio.
+
+```{r echo=FALSE, out.width="40%", fig.align='center'}
+knitr::include_graphics("C:/Users/Thomas S/Documents/Ubiqum/2. Data Analytics 2/2. Data Analytics 2/5. Present to the CEO and Report on Lessons Learned/4.jpg")
+```
+
+
+
+## 3. What future uses would benefit Blackwell?
+
+Blackwell has so far limited the use of Data Analytics for the use of it's sales however the company could benefit by expaniding the use to the entire enterprise. Futhermore all the use cases so far have been externally.
+
+Despite this, data analytics is not limited to the optimization of sales and consumer behvaiour. Blackwell could apply the same technologies used for the Sales Team for their human resource department, supply chain and in the research and development of new services. 
+
+
